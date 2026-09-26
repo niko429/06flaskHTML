@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jakiś tytuł</title>
+</head>
+<body>
+    {% if zalogowany %}
+        <p>Witaj ponownie!</p>
+    {% else %}
+        <p><a href="/login">Zaloguj się</a></p>
+    {% endif %}
+
+    {% if rola == "admin" %}
+        <a href="/admin">Panel</a>
+    {% elif rola == "sprzedawca" %}
+        <a href="/magazyn">Magazyn</a>
+    {% endif %}
+</body>
+</html>

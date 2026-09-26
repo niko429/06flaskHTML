@@ -1,0 +1,22 @@
+<h1>Produkty {{ produkty|length }}</h1>
+<table>
+    <tr>
+        <th>#</th>
+        <th>Nazwa</th>
+        <th>Cena</th>
+        <th>Status</th>
+        {% for p in produkty %}
+    </tr>
+    <tr>
+        <td>{{ loop.index }}</td>
+        <td><a href="{{ url_for('pro', id=p.id)}}">{{ p.nazwa }}</a></td>
+        <td>{{ p.nazwa }} zł</td>
+        <td>{% if p.dostepny %}
+            dostępny
+        {% else %}
+            <b>brak</b>
+        {% endif %}</td>
+    </tr>
+    {% endfor %}
+    {% extends "06base1.html" %}
+</table>

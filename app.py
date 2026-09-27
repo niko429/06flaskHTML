@@ -19,5 +19,7 @@ LISTA = [
 def list():
     return render_template("06lista.html", lista=LISTA)
 
+
+
 if __name__ == "__main__":
     app.run(debug=True)

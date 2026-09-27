@@ -1,8 +1,18 @@
 <table>
     <tr>
-        {% for p in lista %}
-        <th>{{ loop.index }}. {{ p[0] }}</th>
+        <th>Lp.</th>
+        {% for klucz in lista[0] %}
+            <th>{{ klucz }}</th>
+        {% endfor %}
     </tr>
-
+    {% for produkt in lista %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ produkt.id }}</td>
+            <td>{{ produkt.nazwa }}</td>
+            <td>{{ produkt.firma }}</td>
+            <td>{{ produkt.Cena }} zł</td>
+            <td>{{ produkt.gamingowy }}</td>
+        </tr>
     {% endfor %}
 </table>

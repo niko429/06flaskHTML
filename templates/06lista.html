@@ -1,20 +1,37 @@
-<table>
-    <tr>
-        <th>Lp.</th>
-        {% for klucz in lista[0] %}
-            <th>{{ klucz }}</th>
-        {% endfor %}
-    </tr>
-    {% for produkt in lista %}
-        <tr>
-            <td>{{ loop.index }}</td>
-            <td>{{ produkt.id }}</td>
-            <td>{{ produkt.nazwa }}</td>
-            <td>{{ produkt.firma }}</td>
-            <td>{{ produkt.Cena }} zł</td>
-            <td>{{ produkt.gamingowy }}</td>
-        </tr>
-    {% endfor %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista produktów</title>
+</head>
+<body>
 
-    {{ test }}
-</table>
+    <h1>Tabela produktów</h1>
+
+    <table>
+        <tr>
+            <th>Lp.</th>
+            <th>id</th>
+            <th>nazwa</th>
+            <th>firma</th>
+            <th>Cena</th>
+            <th>gamingowy</th>
+        </tr>
+        {% for produkt in lista %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ produkt.id }}</td>
+                <td><a href="{{ url_for('de', id=produkt.id) }}">{{ produkt.nazwa }}</a></td>
+                <td>{{ produkt.firma }}</td>
+                <td>{{ produkt.Cena }} zł</td>
+                <td>{{ produkt.gamingowy }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% if lista|length == 1 %}
+        <br>
+        <a href="{{ url_for('list') }}">← Powrót do pełnej listy</a>
+    {% endif %}
+
+</body>
+</html>

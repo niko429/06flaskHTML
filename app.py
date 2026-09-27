@@ -23,11 +23,11 @@ def list():
 # Zadanie 3
 @app.route("/element/<int:id>")
 def de(id):
-    if id < 1 or id > 5:
+    if id < 1 or id > len(LISTA):
         abort(404)
     else:
-        id = LISTA[index]
-        return render_template("06lista.html", lista=LISTA)
+        wybrany_produkt = [LISTA[id - 1]]
+        return render_template("06lista.html", lista=wybrany_produkt)
 
 if __name__ == "__main__":
     app.run(debug=True)
